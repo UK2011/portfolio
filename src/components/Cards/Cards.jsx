@@ -60,13 +60,13 @@ const Cards = () => {
                     end: "top top",
                     onUpdate: (self) => {
                         const progress = self.progress;
-                        const scale = 1 - progress * 0.25;
+                        const scale = 1 - progress * 0.15;
                         const rotation = (index % 2 === 0 ? 5 : -5) * progress;
                         const afterOpacity = progress;
                         gsap.set(card, {
                             scale: scale,
                             rotation: rotation,
-                            "--after-opacity": afterOpacity
+                            "--after-opacity": afterOpacity,
                         })
 
                     }
@@ -77,10 +77,10 @@ const Cards = () => {
     return (
 
 
-        <div className="cards" ref={cardsContainer} style={{ zIndex: 100, position: "relative" }}>{
+        <div className="cards" ref={cardsContainer} style={{ zIndex: 1, position: "relative" }}>{
             cardsData.map((card, index) => {
                 return (
-                    <div className="card" key={index}>
+                    <div className="card" key={index} style={{ zIndex: index + 1 }}>
                         <div className="card-index"><h1>{card.index}</h1></div>
                         <div className="card-content">
                             <div className="card-content-wrapper">
