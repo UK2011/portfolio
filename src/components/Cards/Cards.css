@@ -1,0 +1,103 @@
+.cards {
+    position: relative;
+    width: 100%;
+    height: 400vh;
+    background-color: var(--ps-bg);
+}
+
+.card {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100svh;
+    background-color: var(--ps-fg);
+    color: var(--ps-bg);
+    padding: 1.5rem;
+    display: flex;
+    gap: 3rem;
+    will-change: transform;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: var(--after-opacity, 0);
+    transition: opacity 0.1s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.card-index {
+    flex: 2;
+
+
+}
+
+.card-content {
+    flex: 4;
+    padding-top: 1.5rem;
+
+}
+
+.card-content-wrapper {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card-header {
+    width: 75%;
+
+}
+
+
+.card-img img {
+    aspect-ratio: 5/3;
+}
+
+
+
+.card-copy {
+    display: flex;
+    gap: 1.5rem;
+}
+
+
+.card-copy-title {
+    flex: 2;
+}
+
+.card-copy-description {
+    flex: 4;
+}
+
+.card-copy-title p {
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+@media(max-width:1000px) {
+    .card {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .card-content-wrapper {
+        width: 100%;
+    }
+
+    .card-copy {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .card-index {
+        flex: 1
+    }
+}
